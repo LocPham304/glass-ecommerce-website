@@ -1,0 +1,41 @@
+﻿<article class="order-card" data-order-code="{{order_code}}" data-status="{{status}}">
+  <div class="order-card__head">
+    <div class="order-card__meta">
+      <h2>#{{order_code}}</h2>
+      <p>Ngày đặt: {{order_date}}</p>
+    </div>
+    <span class="history-status">{{status_label}}</span>
+  </div>
+
+  <div class="order-product">
+    <img src="{{product_image}}" alt="{{product_name}}" />
+    <div class="order-product__content">
+      <h3>{{product_name}}</h3>
+      <p>{{product_variant}}</p>
+      <span>x{{quantity}}</span>
+    </div>
+    <div class="order-product__price">
+      <strong>{{product_price}}</strong>
+    </div>
+  </div>
+
+  <div class="order-progress"></div>
+
+  <div class="order-card__summary">
+    <p>{{order_note}}</p>
+    <div class="order-card__summary-right">
+      <div class="order-total">
+        <span>Thành tiền:</span>
+        <strong>{{order_total}}</strong>
+      </div>
+      <div class="order-actions">
+        <button class="order-button order-button--primary" type="button">
+          {{primary_action}}
+        </button>
+        <button class="order-button" type="button">Xem chi tiết</button>
+      </div>
+    </div>
+  </div>
+</article>
+
+

@@ -1,0 +1,264 @@
+.admin-content--returns {
+  gap: 20px;
+  min-width: 0;
+}
+
+.return-filter-panel,
+.return-table-panel {
+  border: 1px solid #edf1f5;
+  border-radius: 18px;
+  background: #ffffff;
+  box-shadow: 0 16px 32px rgba(16, 24, 40, 0.04);
+}
+
+.return-table-panel {
+  overflow: hidden;
+}
+
+.return-filter-panel {
+  padding: 18px;
+}
+
+.return-filter-grid {
+  display: grid;
+  grid-template-columns: 1.4fr repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.return-table {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.return-table__head,
+.return-row {
+  display: grid;
+  grid-template-columns: 118px 96px 170px 180px 112px minmax(240px, 1fr) 120px 178px;
+  gap: 12px;
+  align-items: center;
+  min-width: 1226px;
+}
+
+.return-table__head {
+  min-height: 54px;
+  padding: 0 18px;
+  border-bottom: 1px solid #eef2f6;
+  color: #a1adba;
+  font-size: 12px;
+  font-weight: 800;
+  line-height: 16px;
+}
+
+.return-row {
+  min-height: 94px;
+  padding: 0 18px;
+  border-bottom: 1px solid #f1f4f7;
+}
+
+.return-row:last-child {
+  border-bottom: 0;
+}
+
+.return-code strong,
+.return-customer strong,
+.return-order {
+  display: block;
+  color: #314650;
+  font-size: 15px;
+  font-weight: 800;
+  line-height: 20px;
+}
+
+.return-code span,
+.return-customer span,
+.return-email,
+.return-detail span {
+  color: #7f8c98;
+  font-size: 13px;
+  line-height: 20px;
+}
+
+.return-code span,
+.return-customer span {
+  display: block;
+  margin-top: 4px;
+}
+
+.return-email {
+  word-break: break-word;
+}
+
+.return-detail strong {
+  display: block;
+  color: #415d6a;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 20px;
+}
+
+.return-detail span {
+  display: block;
+  margin-top: 4px;
+}
+
+.return-type-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 30px;
+  padding: 0 12px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 800;
+  line-height: 16px;
+}
+
+.return-type-pill--exchange {
+  background: #edf4ff;
+  color: #5d8df7;
+}
+
+.return-type-pill--refund {
+  background: #fff2e7;
+  color: #f08c21;
+}
+
+.return-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.return-status-select {
+  min-width: 122px;
+  height: 36px;
+  padding: 0 12px;
+  border: 1px solid #e6edf4;
+  border-radius: 10px;
+  background: #f9fbfd;
+  color: #415d6a;
+  font-size: 13px;
+  outline: 0;
+}
+
+.return-status-save {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border: 1px solid #e6edf4;
+  border-radius: 10px;
+  background: #ffffff;
+  color: #7f8c98;
+}
+
+.return-empty-state {
+  display: grid;
+  justify-items: center;
+  gap: 10px;
+  padding: 38px 18px 28px;
+  border-top: 1px solid #eef2f6;
+  text-align: center;
+}
+
+.return-empty-state i {
+  color: #b1bcc8;
+  font-size: 26px;
+}
+
+.return-empty-state strong {
+  color: #415d6a;
+  font-size: 18px;
+  font-weight: 800;
+  line-height: 24px;
+}
+
+.return-empty-state p {
+  max-width: 440px;
+  margin: 0;
+  color: #7f8c98;
+  font-size: 14px;
+  line-height: 22px;
+}
+
+.return-admin-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px 18px 18px;
+  border-top: 1px solid #eef2f6;
+}
+
+@media (max-width: 1279.98px) {
+  .admin-topbar--products {
+    align-items: stretch;
+    flex-wrap: wrap;
+  }
+
+  .admin-products-topbar__title {
+    flex: 0 0 auto;
+  }
+
+  .admin-products-search {
+    flex: 1 1 340px;
+    order: 2;
+    width: auto;
+  }
+
+  .admin-primary-button--topbar {
+    margin-left: 0;
+    order: 3;
+    width: fit-content;
+  }
+
+  .product-toolbar {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .product-toolbar__summary {
+    width: 100%;
+    text-align: left;
+  }
+
+  .return-table__head,
+  .return-row {
+    grid-template-columns: 112px 92px 156px 168px 106px minmax(220px, 1fr) 112px 166px;
+    min-width: 1132px;
+  }
+}
+
+@media (max-width: 1399.98px) {
+  .return-filter-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 991.98px) {
+  .return-table__head {
+    display: none;
+  }
+
+  .return-row {
+    grid-template-columns: 1fr;
+    gap: 8px;
+    padding: 16px 18px;
+  }
+
+  .return-actions {
+    flex-wrap: wrap;
+  }
+
+  .return-admin-footer {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .return-filter-grid {
+    grid-template-columns: 1fr;
+  }
+}

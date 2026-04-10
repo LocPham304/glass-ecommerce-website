@@ -1,0 +1,361 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ClearVision | Thêm người dùng</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Public+Sans:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="../assets/css/admin.css" />
+    <link rel="stylesheet" href="../assets/css/admin-products.css" />
+    <link rel="stylesheet" href="../assets/css/admin-user-create.css" />
+  </head>
+  <body class="admin-body">
+    <div class="admin-shell">
+      <aside class="admin-sidebar">
+        <div class="admin-sidebar__brand">
+          <a
+            class="admin-brand"
+            href="./dashboard.html"
+            aria-label="ClearVision Admin"
+          >
+            <img
+              class="admin-brand__mark"
+              src="../assets/images/common/logo.png"
+              alt="ClearVision logo"
+            />
+            <span class="admin-brand__text">
+              <span class="admin-brand__text-main">CLEAR</span
+              ><span class="admin-brand__text-accent">VISION</span>
+            </span>
+          </a>
+        </div>
+
+        <button
+          class="admin-menu-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="admin-nav"
+        >
+          <i class="fa-solid fa-bars" aria-hidden="true"></i>
+          <span>Menu quản trị</span>
+        </button>
+
+        <nav class="admin-nav" id="admin-nav" aria-label="Quản trị viên">
+          <a class="admin-nav__item" href="./dashboard.html">
+            <i class="fa-solid fa-table-cells-large" aria-hidden="true"></i>
+            <span>Tổng quan</span>
+          </a>
+          <a class="admin-nav__item" href="./products-manage.html">
+            <i class="fa-solid fa-glasses" aria-hidden="true"></i>
+            <span>Sản phẩm</span>
+          </a>
+          <a class="admin-nav__item" href="./promotions-manage.html">
+            <i class="fa-solid fa-tag" aria-hidden="true"></i>
+            <span>Khuyến mãi</span>
+          </a>
+          <a class="admin-nav__item" href="./orders-manage.html">
+            <i class="fa-solid fa-cart-shopping" aria-hidden="true"></i>
+            <span>Đơn hàng</span>
+          </a>
+          <a class="admin-nav__item is-active" href="./customers-manage.html">
+            <i class="fa-solid fa-user-group" aria-hidden="true"></i>
+            <span>Người dùng</span>
+          </a>
+          <a class="admin-nav__item" href="./refunds-manage.html">
+            <i class="fa-solid fa-rotate-left" aria-hidden="true"></i>
+            <span>Đổi trả</span>
+          </a>
+          <a class="admin-nav__item" href="./reports.html">
+            <i class="fa-solid fa-chart-column" aria-hidden="true"></i>
+            <span>Báo cáo</span>
+          </a>
+        </nav>
+
+        <div class="admin-sidebar__footer">
+          <div class="admin-user-card">
+            <div class="admin-user-card__avatar">
+              <i class="fa-solid fa-user-tie" aria-hidden="true"></i>
+            </div>
+            <div class="admin-user-card__meta">
+              <strong>Linh Nguyen</strong>
+              <span>Quản trị viên</span>
+            </div>
+            <button
+              class="admin-user-card__action"
+              type="button"
+              aria-label="Đăng xuất"
+            >
+              <i
+                class="fa-solid fa-arrow-right-from-bracket"
+                aria-hidden="true"
+              ></i>
+            </button>
+          </div>
+          <a class="admin-store-link" href="../pages/homepage.html">
+            <i class="fa-solid fa-store" aria-hidden="true"></i>
+            <span>Quay lại cửa hàng</span>
+          </a>
+        </div>
+      </aside>
+
+      <main class="admin-main">
+        <header class="admin-topbar admin-topbar--products">
+          <div class="admin-products-topbar__title">
+            <p class="admin-create-breadcrumb">
+              Nguoi dung <span>/</span> Tao moi
+            </p>
+            <h1>Thêm người dùng</h1>
+          </div>
+
+          <a
+            class="admin-secondary-link admin-secondary-link--topbar"
+            href="./customers-manage.html"
+          >
+            <i class="fa-solid fa-arrow-left" aria-hidden="true"></i>
+            Quay lại danh sách
+          </a>
+        </header>
+
+        <section class="admin-content admin-content--create">
+          <form class="create-user-layout" data-user-create-form>
+            <section class="admin-panel create-panel create-panel--main">
+              <div class="create-section">
+                <div class="create-section__heading">
+                  <h2>Thông tin tài khoản</h2>
+                  <p>
+                    Tao tai khoan moi cho quan tri vien, nhan vien van hanh hoac
+                    khach hang.
+                  </p>
+                </div>
+
+                <div class="create-form-grid">
+                  <label class="create-field">
+                    <span>Họ và tên <em>*</em></span>
+                    <input
+                      type="text"
+                      placeholder="Vi du: Nguyen Van A"
+                      required
+                    />
+                  </label>
+
+                  <label class="create-field">
+                    <span>Email <em>*</em></span>
+                    <input
+                      type="email"
+                      placeholder="customer@clearvision.vn"
+                      required
+                    />
+                  </label>
+
+                  <label class="create-field">
+                    <span>Số điện thoại <em>*</em></span>
+                    <input type="tel" placeholder="0901 234 567" required />
+                  </label>
+
+                  <label class="create-field">
+                    <span>Tên đăng nhập <em>*</em></span>
+                    <input type="text" placeholder="nguyenvana" required />
+                  </label>
+
+                  <label class="create-field">
+                    <span>Vai trò <em>*</em></span>
+                    <select required data-user-role>
+                      <option value="admin">Quản trị viên</option>
+                      <option value="staff">Nhan vien</option>
+                      <option value="customer">Khach hang</option>
+                    </select>
+                  </label>
+
+                  <label class="create-field">
+                    <span>Trang thai</span>
+                    <select>
+                      <option>Hoạt động</option>
+                      <option>Tạm khóa</option>
+                    </select>
+                  </label>
+
+                  <label class="create-field">
+                    <span>Mật khẩu tạm <em>*</em></span>
+                    <input
+                      type="password"
+                      placeholder="Nhập mật khẩu tạm thời"
+                      required
+                    />
+                  </label>
+
+                  <label class="create-field">
+                    <span>Xác nhận mật khẩu <em>*</em></span>
+                    <input
+                      type="password"
+                      placeholder="Nhập lại mật khẩu"
+                      required
+                    />
+                  </label>
+                </div>
+              </div>
+
+              <div class="create-section">
+                <div class="create-section__heading">
+                  <h2>Thông tin bổ sung</h2>
+                  <p>
+                    Thêm thông tin liên hệ và ghi chú để đội vận hành dễ quản lý
+                    hơn.
+                  </p>
+                </div>
+
+                <div class="create-form-grid">
+                  <label class="create-field create-field--full">
+                    <span>Địa chỉ</span>
+                    <input
+                      type="text"
+                      placeholder="123 Lê Lợi, Quận 1, TP. HCM"
+                    />
+                  </label>
+
+                  <label class="create-field">
+                    <span>Ngày sinh</span>
+                    <input type="date" />
+                  </label>
+
+                  <label class="create-field">
+                    <span>Mã nội bộ / Mã khách hàng</span>
+                    <input type="text" placeholder="NV-032 hoặc KH-215" />
+                  </label>
+
+                  <label class="create-field create-field--full">
+                    <span>Ghi chú</span>
+                    <textarea
+                      rows="4"
+                      placeholder="Ví dụ: Nhân viên phụ trách đổi trả hoặc khách hàng ưu tiên hỗ trợ nhanh."
+                    ></textarea>
+                  </label>
+                </div>
+              </div>
+            </section>
+
+            <aside class="create-user-sidebar">
+              <section class="admin-panel create-panel">
+                <div class="create-section__heading">
+                  <h2>Ảnh đại diện</h2>
+                  <p>
+                    Tải lên ảnh nhận diện cho tài khoản trong danh sách quản lý.
+                  </p>
+                </div>
+
+                <label class="image-uploader" for="user-avatar-input">
+                  <input
+                    id="user-avatar-input"
+                    type="file"
+                    accept="image/*"
+                    data-user-avatar
+                  />
+                  <div
+                    class="image-uploader__preview image-uploader__preview--avatar"
+                    data-avatar-preview
+                  >
+                    <i class="fa-regular fa-user" aria-hidden="true"></i>
+                    <strong>Chon anh dai dien</strong>
+                    <span>Kéo thả hoặc nhấn để tải ảnh lên</span>
+                  </div>
+                </label>
+              </section>
+
+              <section class="admin-panel create-panel">
+                <div class="create-section__heading">
+                  <h2>Quyền truy cập</h2>
+                  <p>
+                    Thiết lập nhanh phạm vi sử dụng cho tài khoản trước khi kích
+                    hoạt.
+                  </p>
+                </div>
+
+                <div class="role-preview" data-role-preview>
+                  <div class="role-preview__icon">
+                    <i class="fa-solid fa-user-shield" aria-hidden="true"></i>
+                  </div>
+                  <div>
+                    <strong data-role-title>Quản trị viên</strong>
+                    <p data-role-description>
+                      Toàn quyền quản trị hệ thống, quản lý dữ liệu và điều phối
+                      nghiệp vụ.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="toggle-group">
+                  <label class="toggle-card">
+                    <div>
+                      <strong>Gửi email kích hoạt</strong>
+                      <span>Thong bao tai khoan moi ngay sau khi tao</span>
+                    </div>
+                    <input type="checkbox" checked />
+                  </label>
+
+                  <label class="toggle-card">
+                    <div>
+                      <strong>Bắt buộc đổi mật khẩu</strong>
+                      <span>Áp dụng ở lần đăng nhập đầu tiên</span>
+                    </div>
+                    <input type="checkbox" checked />
+                  </label>
+
+                  <label class="toggle-card">
+                    <div>
+                      <strong>Nhận thông báo đơn hàng</strong>
+                      <span
+                        >Phu hop cho quan tri vien va nhan vien van hanh</span
+                      >
+                    </div>
+                    <input type="checkbox" />
+                  </label>
+                </div>
+              </section>
+
+              <section class="admin-panel create-panel create-panel--sticky">
+                <div class="create-section__heading">
+                  <h2>Hành động</h2>
+                  <p>
+                    Bạn có thể lưu nháp hồ sơ trước hoặc kích hoạt tài khoản
+                    ngay lập tức.
+                  </p>
+                </div>
+
+                <div class="create-actions">
+                  <button
+                    class="admin-secondary-button admin-secondary-button--wide"
+                    type="button"
+                    data-save-draft
+                  >
+                    <i class="fa-regular fa-floppy-disk" aria-hidden="true"></i>
+                    Lưu nháp
+                  </button>
+                  <button
+                    class="admin-primary-button admin-primary-button--wide"
+                    type="submit"
+                  >
+                    <i class="fa-solid fa-user-plus" aria-hidden="true"></i>
+                    Tao nguoi dung
+                  </button>
+                </div>
+              </section>
+            </aside>
+          </form>
+        </section>
+      </main>
+    </div>
+
+    <script src="../assets/js/admin.js"></script>
+    <script src="../assets/js/admin-user-create.js"></script>
+  </body>
+</html>

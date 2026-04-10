@@ -1,0 +1,428 @@
+﻿<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ClearVision | About</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Public+Sans:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="../assets/css/homepage.css" />
+    <link rel="stylesheet" href="../assets/css/about-us.css" />
+  </head>
+  <body class="about-body">
+    <div class="page-shell">
+      <header class="site-header">
+        <div class="site-container header-inner">
+          <a class="brand" href="./homepage.html" aria-label="ClearVision">
+            <img
+              class="brand__mark"
+              src="../assets/images/common/logo.png"
+              alt="ClearVision logo"
+            />
+            <span class="brand__text">
+              <span class="brand__text-main">CLEAR</span
+              ><span class="brand__text-accent">VISION</span>
+            </span>
+          </a>
+
+          <button
+            class="menu-toggle"
+            type="button"
+            aria-expanded="false"
+            aria-controls="site-nav"
+            aria-label="Mở menu"
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+
+          <nav
+            class="site-nav"
+            id="site-nav"
+            aria-label="Điều hướng người dùng"
+          >
+            <div class="nav-dropdown">
+              <button
+                class="nav-dropdown__toggle"
+                type="button"
+                aria-expanded="false"
+              >
+                <span>Sản phẩm</span>
+                <i class="fa-solid fa-angle-down" aria-hidden="true"></i>
+              </button>
+              <div class="nav-dropdown__menu">
+                <a href="./shop.html?category=gong-kinh-can">Gọng kính cận</a>
+                <a href="./shop.html?category=trong-kinh">Tròng kính</a>
+                <a href="./shop.html?category=combo">Combo</a>
+                <a href="./shop.html?category=phu-kien">Phụ kiện</a>
+              </div>
+            </div>
+            <a href="./about.html">Về chúng tôi</a>
+
+            <a href="./warranty.html">Chính sách</a>
+            <a href="./return-request.html">Đổi trả &amp; Hoàn tiền</a>
+          </nav>
+
+          <div class="header-tools">
+            <label class="search-box" aria-label="Tìm kiếm">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  d="M10.5 4a6.5 6.5 0 1 0 4.08 11.56l4.43 4.43 1.41-1.41-4.43-4.43A6.5 6.5 0 0 0 10.5 4Zm0 2a4.5 4.5 0 1 1 0 9a4.5 4.5 0 0 1 0-9Z"
+                ></path>
+              </svg>
+              <input
+                type="search"
+                placeholder="Tìm kiếm..."
+                aria-label="Tìm kiếm sản phẩm"
+              />
+            </label>
+
+            <button
+              class="icon-button cart-button"
+              type="button"
+              aria-label="Giỏ hàng"
+            >
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  d="M7 4H3v2h2.2l1.8 8.04A2 2 0 0 0 8.95 16h8.63a2 2 0 0 0 1.94-1.52L21 8H8.1l-.44-2H7Zm2.5 14A1.5 1.5 0 1 0 11 19.5 1.5 1.5 0 0 0 9.5 18Zm8 0A1.5 1.5 0 1 0 19 19.5 1.5 1.5 0 0 0 17.5 18Z"
+                ></path>
+              </svg>
+              <span class="cart-count">0</span>
+            </button>
+
+            <button
+              class="icon-button profile-button"
+              type="button"
+              aria-label="Tài khoản"
+            >
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  d="M12 12a4 4 0 1 0-4-4a4 4 0 0 0 4 4Zm0 2c-4.42 0-8 2.24-8 5v1h16v-1c0-2.76-3.58-5-8-5Z"
+                ></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </header>
+
+      <main class="about-main">
+        <section class="about-hero">
+          <div class="site-container about-hero__grid">
+            <div class="about-hero__copy">
+              <p class="about-kicker">CLEARVISION STORY</p>
+              <h1>
+                Về <span>ClearVision</span> - Hệ thống mua kính mắt trực tuyến
+                hiện đại
+              </h1>
+              <p>
+                Trải nghiệm mua sắm kính mắt dễ dàng, phong cách dành riêng cho
+                bạn, tối ưu với chính sách minh bạch. Chúng tôi mang đến sự kết
+                hợp hoàn hảo giữa công nghệ và thời trang.
+              </p>
+              <div class="about-hero__actions">
+                <a class="btn-primary-custom" href="./shop.html"
+                  >Khám phá ngay</a
+                >
+                <a class="btn-dark-custom" href="./warranty.html"
+                  >Xem chính sách</a
+                >
+              </div>
+            </div>
+
+            <div class="about-hero__visual">
+              <img
+                src="../assets/images/about-us/eyewear-display.png"
+                alt="Modern Eyewear Display"
+              />
+            </div>
+          </div>
+        </section>
+
+        <section class="about-section">
+          <div class="site-container">
+            <div class="section-heading-center mission-heading">
+              <h2>Sứ mệnh &amp; Tầm nhìn</h2>
+            </div>
+
+            <div class="about-dual-grid">
+              <article class="about-card">
+                <div class="about-card__icon">
+                  <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </div>
+                <div>
+                  <h3>Sứ mệnh</h3>
+                  <p>
+                    Mang đến trải nghiệm mua kính mắt trực tuyến thuận tiện, để
+                    tiếp cận với chất lượng minh bạch cho khách hàng hiện đại.
+                  </p>
+                </div>
+              </article>
+
+              <article class="about-card">
+                <div class="about-card__icon">
+                  <i class="fa-regular fa-eye"></i>
+                </div>
+                <div>
+                  <h3>Tầm nhìn</h3>
+                  <p>
+                    Trở thành hệ thống kính mắt được khách hàng tin chọn nhờ
+                    dịch vụ tận tâm, minh bạch và trải nghiệm cá nhân hóa chỉn
+                    chu.
+                  </p>
+                </div>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section class="about-section about-section--tight">
+          <div class="site-container white-background">
+            <div class="section-heading-center values-heading">
+              <h2>Giá trị cốt lõi</h2>
+            </div>
+
+            <div class="values-grid">
+              <article class="value-item">
+                <div class="value-item__icon">
+                  <i class="fa-solid fa-shield-halved"></i>
+                </div>
+                <h3>Minh bạch</h3>
+                <p>
+                  Chúng tôi cam kết về nguồn gốc sản phẩm và chính sách bảo hành
+                  rõ ràng nhất cho khách hàng.
+                </p>
+              </article>
+              <article class="value-item">
+                <div class="value-item__icon">
+                  <i class="fa-regular fa-gem"></i>
+                </div>
+                <h3>Chất lượng</h3>
+                <p>
+                  Mỗi chiếc kính đều được kiểm định khắt khe trước khi giao đến
+                  tay khách hàng.
+                </p>
+              </article>
+              <article class="value-item">
+                <div class="value-item__icon">
+                  <i class="fa-regular fa-heart"></i>
+                </div>
+                <h3>Khách hàng là trung tâm</h3>
+                <p>
+                  Sự hài lòng của bạn là thước đo duy nhất cho thành công của
+                  ClearVision.
+                </p>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section class="about-section">
+          <div class="site-container">
+            <div class="section-heading-center values-heading">
+              <h2>Điểm nổi bật của hệ thống</h2>
+            </div>
+
+            <div class="features-grid">
+              <article class="feature-card">
+                <div class="feature-card__icon">
+                  <i class="fa-solid fa-bolt"></i>
+                </div>
+                <h3>Mua online nhanh chóng</h3>
+                <p>Quy trình đơn giản chỉ với vài bước trên mọi thiết bị.</p>
+              </article>
+              <article class="feature-card">
+                <div class="feature-card__icon">
+                  <i class="fa-solid fa-truck-fast"></i>
+                </div>
+                <h3>Theo dõi đơn hàng dễ dàng</h3>
+                <p>Cập nhật trạng thái minh bạch theo thời gian thực.</p>
+              </article>
+              <article class="feature-card">
+                <div class="feature-card__icon">
+                  <i class="fa-solid fa-glasses"></i>
+                </div>
+                <h3>Đặt kính theo yêu cầu</h3>
+                <p>Tùy chỉnh tròng kính, gọng kính theo nhu cầu của bạn.</p>
+              </article>
+              <article class="feature-card">
+                <div class="feature-card__icon">
+                  <i class="fa-regular fa-star"></i>
+                </div>
+                <h3>Đánh giá minh bạch</h3>
+                <p>Khách hàng có thể xem review thật trước khi mua hàng.</p>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section class="about-section about-section--team" id="team">
+          <div class="site-container">
+            <div class="section-heading-center">
+              <h2>Đội ngũ phát triển</h2>
+            </div>
+
+            <div class="team-grid">
+              <article class="team-member">
+                <img
+                  src="../assets/images/about-us/member-nguyen-van-a.png"
+                  alt="Nguyễn Văn A"
+                />
+                <h3>Nguyễn Văn A</h3>
+                <p>Founder</p>
+              </article>
+              <article class="team-member">
+                <img
+                  src="../assets/images/about-us/member-tran-thi-b.png"
+                  alt="Trần Thị B"
+                />
+                <h3>Trần Thị B</h3>
+                <p>Marketing Lead</p>
+              </article>
+              <article class="team-member">
+                <img
+                  src="../assets/images/about-us/member-le-van-c.png"
+                  alt="Lê Văn C"
+                />
+                <h3>Lê Văn C</h3>
+                <p>Product Manager</p>
+              </article>
+              <article class="team-member">
+                <img
+                  src="../assets/images/about-us/member-pham-thi-d.png"
+                  alt="Phạm Thị D"
+                />
+                <h3>Phạm Thị D</h3>
+                <p>Design Lead</p>
+              </article>
+              <article class="team-member">
+                <img
+                  src="../assets/images/about-us/member-hoang-van-e.png"
+                  alt="Hoàng Văn E"
+                />
+                <h3>Hoàng Văn E</h3>
+                <p>Developer</p>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section class="about-cta">
+          <div class="site-container">
+            <div class="about-cta__banner">
+              <div class="about-cta__copy">
+                <h2>Sẵn sàng chọn cho mình chiếc kính hoàn hảo?</h2>
+                <p>Khám phá bộ sưu tập mới nhất với ưu đãi lên đến 20%.</p>
+              </div>
+              <div class="about-cta__actions">
+                <a class="cta-light-button" href="./shop.html"
+                  >Khám phá sản phẩm</a
+                >
+                <a class="cta-dark-button" href="./warranty.html"
+                  >Xem chính sách</a
+                >
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer class="site-footer" id="footer">
+        <div class="site-container footer-top">
+          <div class="footer-brand">
+            <a
+              class="brand brand--footer"
+              href="./homepage.html"
+              aria-label="ClearVision"
+            >
+              <img
+                class="brand__mark"
+                src="../assets/images/common/logo.png"
+                alt="ClearVision logo"
+              />
+              <span class="brand__text">
+                <span class="brand__text-main">Clear</span
+                ><span class="brand__text-accent">Vision</span>
+              </span>
+            </a>
+            <p>
+              Thương hiệu kính mắt hàng đầu Việt Nam, mang đến phong cách và sự
+              bảo vệ tối ưu cho đôi mắt của bạn.
+            </p>
+            <div class="footer-socials">
+              <a href="#" aria-label="Facebook">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path
+                    d="M13 22v-8h3l1-4h-4V7.5c0-1.16.4-1.95 2.08-1.95H17V2.14C16.63 2.09 15.38 2 13.92 2 10.87 2 9 3.86 9 7.28V10H6v4h3v8h4Z"
+                  ></path>
+                </svg>
+              </a>
+              <a href="#" aria-label="Instagram">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path
+                    d="M7 3h10a4 4 0 0 1 4 4v10a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V7a4 4 0 0 1 4-4Zm0 2a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2Zm5 2.5A4.5 4.5 0 1 1 7.5 12 4.5 4.5 0 0 1 12 7.5Zm0 2A2.5 2.5 0 1 0 14.5 12 2.5 2.5 0 0 0 12 9.5Zm4.75-3a1 1 0 1 1-1 1a1 1 0 0 1 1-1Z"
+                  ></path>
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <div class="footer-column">
+            <h3>Sản phẩm</h3>
+            <a href="./shop.html?category=gong-kinh-can">Gọng kính cận</a>
+            <a href="./shop.html?category=trong-kinh">Tròng kính</a>
+            <a href="./shop.html?category=combo">Combo</a>
+            <a href="./shop.html?category=phu-kien">Phụ kiện</a>
+          </div>
+
+          <div class="footer-column">
+            <h3>Hỗ trợ</h3>
+            <a href="#">Hướng dẫn đo mắt</a>
+            <a href="./warranty.html">Chính sách bảo hành</a>
+            <a href="./return-request.html">Đổi trả &amp; Hoàn tiền</a>
+            <a href="#">Vận chuyển</a>
+          </div>
+
+          <div class="footer-column footer-column--contact">
+            <h3>Liên hệ</h3>
+            <p>123 Đường ABC, Phường Sài Gòn, TP. Hồ Chí Minh</p>
+            <p>1900 1234</p>
+            <p>contact@clearvision.vn</p>
+          </div>
+        </div>
+
+        <div class="site-container footer-bottom">
+          <p>&copy; 2024 ClearVision. Tất cả các quyền được bảo lưu.</p>
+          <div class="footer-bottom__links">
+            <a href="#">Điều khoản dịch vụ</a>
+            <a href="#">Chính sách bảo mật</a>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script src="../assets/js/public-nav.js"></script>
+    <script src="../assets/js/about-us.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

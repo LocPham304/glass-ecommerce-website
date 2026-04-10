@@ -1,0 +1,93 @@
+<aside class="admin-sidebar">
+  <div class="admin-sidebar__brand">
+    <a
+      class="admin-brand"
+      href="./dashboard.html"
+      aria-label="ClearVision Admin"
+    >
+      <img
+        class="admin-brand__mark"
+        src="../assets/images/common/logo.png"
+        alt="ClearVision logo"
+      />
+      <span class="admin-brand__text">
+        <span class="admin-brand__text-main">CLEAR</span
+        ><span class="admin-brand__text-accent">VISION</span>
+      </span>
+    </a>
+  </div>
+
+  <button
+    class="admin-menu-toggle"
+    type="button"
+    aria-expanded="false"
+    aria-controls="admin-nav"
+  >
+    <i class="fa-solid fa-bars" aria-hidden="true"></i>
+    <span>Menu quản trị</span>
+  </button>
+
+  <nav class="admin-nav" id="admin-nav" aria-label="Quản trị viên">
+    <a class="admin-nav__item {{dashboard_active}}" href="./dashboard.html">
+      <i class="fa-solid fa-table-cells-large" aria-hidden="true"></i>
+      <span>Tổng quan</span>
+    </a>
+    <a
+      class="admin-nav__item {{products_active}}"
+      href="./products-manage.html"
+    >
+      <i class="fa-solid fa-glasses" aria-hidden="true"></i>
+      <span>Sản phẩm</span>
+    </a>
+    <a
+      class="admin-nav__item {{promotions_active}}"
+      href="./promotions-manage.html"
+    >
+      <i class="fa-solid fa-tag" aria-hidden="true"></i>
+      <span>Khuyến mãi</span>
+    </a>
+    <a class="admin-nav__item {{orders_active}}" href="./orders-manage.html">
+      <i class="fa-solid fa-cart-shopping" aria-hidden="true"></i>
+      <span>Đơn hàng</span>
+    </a>
+    <a
+      class="admin-nav__item {{customers_active}}"
+      href="./customers-manage.html"
+    >
+      <i class="fa-solid fa-user-group" aria-hidden="true"></i>
+      <span>Người dùng</span>
+    </a>
+    <a class="admin-nav__item {{refunds_active}}" href="./refunds-manage.html">
+      <i class="fa-solid fa-rotate-left" aria-hidden="true"></i>
+      <span>Đổi trả</span>
+    </a>
+    <a class="admin-nav__item {{reports_active}}" href="./reports.html">
+      <i class="fa-solid fa-chart-column" aria-hidden="true"></i>
+      <span>Báo cáo</span>
+    </a>
+  </nav>
+
+  <div class="admin-sidebar__footer">
+    <div class="admin-user-card">
+      <div class="admin-user-card__avatar">
+        <i class="fa-solid fa-user-tie" aria-hidden="true"></i>
+      </div>
+      <div class="admin-user-card__meta">
+        <strong>Linh Nguyen</strong>
+        <span>Quản trị viên</span>
+      </div>
+      <button
+        class="admin-user-card__action"
+        type="button"
+        aria-label="Đăng xuất"
+      >
+        <i class="fa-solid fa-arrow-right-from-bracket" aria-hidden="true"></i>
+      </button>
+    </div>
+
+    <a class="admin-store-link" href="../pages/homepage.html">
+      <i class="fa-solid fa-store" aria-hidden="true"></i>
+      <span>Quay lại cửa hàng</span>
+    </a>
+  </div>
+</aside>

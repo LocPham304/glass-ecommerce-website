@@ -1,0 +1,38 @@
+﻿<aside class="profile-sidebar">
+  <div class="sidebar-card sidebar-account">
+    <div class="sidebar-account__head">
+      <img src="../assets/images/profile/profile-avatar.png" alt="{{customer-name}}" />
+      <div>
+        <h2>{{customer-name}}</h2>
+        <p>{{customer-tier}}</p>
+      </div>
+    </div>
+
+    <nav class="sidebar-menu" aria-label="T�i kho?n">
+      <a class="sidebar-menu__item {{profile-active}}" href="./profile.html">
+        <i class="fa-regular fa-user" aria-hidden="true"></i>
+        <span>Th�ng tin c� nh�n</span>
+      </a>
+      <a class="sidebar-menu__item {{orders-active}}" href="./my-orders.html">
+        <i class="fa-regular fa-rectangle-list" aria-hidden="true"></i>
+        <span>�on h�ng c?a t�i</span>
+      </a>
+      <a class="sidebar-menu__item {{return-active}}" href="./return-request.html">
+        <i class="fa-solid fa-rotate-left" aria-hidden="true"></i>
+        <span>�?i tr? / ho�n ti?n</span>
+      </a>
+      <button class="sidebar-menu__item sidebar-menu__item--logout" type="button">
+        <i class="fa-solid fa-arrow-right-from-bracket" aria-hidden="true"></i>
+        <span>�ang xu?t</span>
+      </button>
+    </nav>
+  </div>
+
+  <div class="sidebar-card sidebar-support">
+    <h3>C?n h? tr??</h3>
+    <p>�?i ngu CSKH c?a ch�ng t�i lu�n s?n s�ng gi?i d�p th?c m?c c?a b?n 24/7.</p>
+    <a class="sidebar-support__button" href="#footer">Li�n h? CSKH</a>
+  </div>
+</aside>
+
+

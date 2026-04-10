@@ -1,0 +1,90 @@
+<header class="site-header">
+  <div class="site-container header-inner">
+    <a class="brand" href="./homepage.html" aria-label="ClearVision">
+      <img
+        class="brand__mark"
+        src="../assets/images/common/logo.png"
+        alt="ClearVision logo"
+      />
+      <span class="brand__text">
+        <span class="brand__text-main">CLEAR</span
+        ><span class="brand__text-accent">VISION</span>
+      </span>
+    </a>
+
+    <button
+      class="menu-toggle"
+      type="button"
+      aria-expanded="false"
+      aria-controls="site-nav"
+      aria-label="Mở menu"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <nav class="site-nav" id="site-nav" aria-label="Điều hướng người dùng">
+      <div class="nav-dropdown">
+        <button
+          class="nav-dropdown__toggle"
+          type="button"
+          aria-expanded="false"
+        >
+          <span>Sản phẩm</span>
+          <i class="fa-solid fa-angle-down" aria-hidden="true"></i>
+        </button>
+        <div class="nav-dropdown__menu">
+          <a href="./shop.html?category=gong-kinh-can">Gọng kính cận</a>
+          <a href="./shop.html?category=trong-kinh">Tròng kính</a>
+          <a href="./shop.html?category=combo">Combo</a>
+          <a href="./shop.html?category=phu-kien">Phụ kiện</a>
+        </div>
+      </div>
+      <a href="./about.html">Về chúng tôi</a>
+
+      <a href="./warranty.html">Chính sách</a>
+      <a href="./return-request.html">Đổi trả &amp; Hoàn tiền</a>
+    </nav>
+
+    <div class="header-tools">
+      <label class="search-box" aria-label="Tìm kiếm">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path
+            d="M10.5 4a6.5 6.5 0 1 0 4.08 11.56l4.43 4.43 1.41-1.41-4.43-4.43A6.5 6.5 0 0 0 10.5 4Zm0 2a4.5 4.5 0 1 1 0 9a4.5 4.5 0 0 1 0-9Z"
+          ></path>
+        </svg>
+        <input
+          type="search"
+          placeholder="Tìm kiếm..."
+          aria-label="Tìm kiếm sản phẩm"
+        />
+      </label>
+
+      <button
+        class="icon-button cart-button"
+        type="button"
+        aria-label="Giỏ hàng"
+      >
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path
+            d="M7 4H3v2h2.2l1.8 8.04A2 2 0 0 0 8.95 16h8.63a2 2 0 0 0 1.94-1.52L21 8H8.1l-.44-2H7Zm2.5 14A1.5 1.5 0 1 0 11 19.5 1.5 1.5 0 0 0 9.5 18Zm8 0A1.5 1.5 0 1 0 19 19.5 1.5 1.5 0 0 0 17.5 18Z"
+          ></path>
+        </svg>
+        <span class="cart-count">0</span>
+      </button>
+
+      <button
+        class="icon-button profile-button"
+        type="button"
+        aria-label="Tài khoản"
+      >
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path
+            d="M12 12a4 4 0 1 0-4-4a4 4 0 0 0 4 4Zm0 2c-4.42 0-8 2.24-8 5v1h16v-1c0-2.76-3.58-5-8-5Z"
+          ></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</header>

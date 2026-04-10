@@ -1,0 +1,366 @@
+﻿<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ClearVision | Checkout</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Public+Sans:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="../assets/css/homepage.css?v=20260402-1" />
+    <link rel="stylesheet" href="../assets/css/checkout.css?v=20260402-1" />
+  </head>
+  <body class="checkout-body">
+    <div class="page-shell">
+      <header class="site-header">
+        <div class="site-container header-inner">
+          <a class="brand" href="./homepage.html" aria-label="ClearVision">
+            <img
+              class="brand__mark"
+              src="../assets/images/common/logo.png"
+              alt="ClearVision logo"
+            />
+            <span class="brand__text">
+              <span class="brand__text-main">CLEAR</span
+              ><span class="brand__text-accent">VISION</span>
+            </span>
+          </a>
+
+          <button
+            class="menu-toggle"
+            type="button"
+            aria-expanded="false"
+            aria-controls="site-nav"
+            aria-label="Mở menu"
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+
+          <nav
+            class="site-nav"
+            id="site-nav"
+            aria-label="Điều hướng người dùng"
+          >
+            <div class="nav-dropdown">
+              <button
+                class="nav-dropdown__toggle"
+                type="button"
+                aria-expanded="false"
+              >
+                <span>Sản phẩm</span>
+                <i class="fa-solid fa-angle-down" aria-hidden="true"></i>
+              </button>
+              <div class="nav-dropdown__menu">
+                <a href="./shop.html?category=gong-kinh-can">Gọng kính cận</a>
+                <a href="./shop.html?category=trong-kinh">Tròng kính</a>
+                <a href="./shop.html?category=combo">Combo</a>
+                <a href="./shop.html?category=phu-kien">Phụ kiện</a>
+              </div>
+            </div>
+            <a href="./about.html">Về chúng tôi</a>
+
+            <a href="./warranty.html">Chính sách</a>
+            <a href="./return-request.html">Đổi trả &amp; Hoàn tiền</a>
+          </nav>
+
+          <div class="header-tools">
+            <label class="search-box" aria-label="Tìm kiếm">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  d="M10.5 4a6.5 6.5 0 1 0 4.08 11.56l4.43 4.43 1.41-1.41-4.43-4.43A6.5 6.5 0 0 0 10.5 4Zm0 2a4.5 4.5 0 1 1 0 9a4.5 4.5 0 0 1 0-9Z"
+                ></path>
+              </svg>
+              <input
+                type="search"
+                placeholder="Tìm kiếm..."
+                aria-label="Tìm kiếm sản phẩm"
+              />
+            </label>
+
+            <button
+              class="icon-button cart-button"
+              type="button"
+              aria-label="Giỏ hàng"
+            >
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  d="M7 4H3v2h2.2l1.8 8.04A2 2 0 0 0 8.95 16h8.63a2 2 0 0 0 1.94-1.52L21 8H8.1l-.44-2H7Zm2.5 14A1.5 1.5 0 1 0 11 19.5 1.5 1.5 0 0 0 9.5 18Zm8 0A1.5 1.5 0 1 0 19 19.5 1.5 1.5 0 0 0 17.5 18Z"
+                ></path>
+              </svg>
+              <span class="cart-count">0</span>
+            </button>
+
+            <button
+              class="icon-button profile-button"
+              type="button"
+              aria-label="Tài khoản"
+            >
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  d="M12 12a4 4 0 1 0-4-4a4 4 0 0 0 4 4Zm0 2c-4.42 0-8 2.24-8 5v1h16v-1c0-2.76-3.58-5-8-5Z"
+                ></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </header>
+
+      <main class="checkout-main">
+        <div class="site-container">
+          <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="./cart.html">Giỏ hàng</a>
+            <span aria-hidden="true">›</span>
+            <span>Thanh toán</span>
+          </nav>
+
+          <section class="checkout-layout">
+            <div class="checkout-form-area">
+              <form class="checkout-form">
+                <section class="form-card">
+                  <!-- FUTURE DYNAMIC DATA: user info area -->
+                  <h2>THÔNG TIN KHÁCH HÀNG</h2>
+                  <div class="field-grid">
+                    <label class="field-row">
+                      <span>Họ và tên <em>*</em></span>
+                      <input type="text" />
+                    </label>
+                    <label class="field-row">
+                      <span>Số điện thoại <em>*</em></span>
+                      <input type="tel" />
+                    </label>
+                    <label class="field-row">
+                      <span>Email <em>*</em></span>
+                      <input type="email" />
+                    </label>
+                  </div>
+                </section>
+
+                <section class="form-card">
+                  <!-- FUTURE DYNAMIC DATA: shipping info area -->
+                  <h2>ĐỊA CHỈ GIAO HÀNG</h2>
+                  <div class="field-grid">
+                    <label class="field-row">
+                      <span>Tỉnh / Thành phố <em>*</em></span>
+                      <select>
+                        <option selected>Select...</option>
+                        <option>TP. Hồ Chí Minh</option>
+                        <option>Hà Nội</option>
+                        <option>Đà Nẵng</option>
+                      </select>
+                    </label>
+                    <label class="field-row">
+                      <span>Qu?n / Huy?n <em>*</em></span>
+                      <select>
+                        <option selected>Select...</option>
+                        <option>Quận 1</option>
+                        <option>Quận 3</option>
+                        <option>Phú Nhuận</option>
+                      </select>
+                    </label>
+                    <label class="field-row">
+                      <span>Phường / Xã <em>*</em></span>
+                      <select>
+                        <option selected>Select...</option>
+                        <option>Phường Bến Nghé</option>
+                        <option>Phường Võ Thị Sáu</option>
+                        <option>Phường 7</option>
+                      </select>
+                    </label>
+                    <label class="field-row">
+                      <span>Địa chỉ <em>*</em></span>
+                      <input type="text" />
+                    </label>
+                    <label class="field-row field-row--full">
+                      <span>Ghi chú</span>
+                      <textarea rows="4"></textarea>
+                    </label>
+                  </div>
+                </section>
+
+                <section class="form-card form-card--note">
+                  <h2>Phiếu khám mắt</h2>
+                  <p>
+                    Phiếu khám mắt được cung cấp bởi kỹ thuật viên đo khúc xạ.
+                    Bao gồm các thông số quan trọng như số độ cận, viễn loạn, số
+                    đo PD... giúp chúng tôi cắt kính chính xác và thoải mái nhất
+                    cho đôi mắt của bạn.
+                  </p>
+                  <button class="upload-button" type="button">
+                    Upload ảnh chụp phiếu khám mắt
+                  </button>
+                </section>
+              </form>
+            </div>
+
+            <aside class="checkout-summary">
+              <!-- FUTURE DYNAMIC DATA: order summary area -->
+              <h2>ĐƠN HÀNG CỦA BẠN</h2>
+
+              <div class="summary-items">
+                <!-- FUTURE DYNAMIC DATA: cart items area -->
+                <!-- REUSABLE COMPONENT: checkout summary item -->
+                <!-- This block is designed to later support PHP foreach rendering. -->
+                <!-- LATER: PHP LOOP HERE -->
+                <article class="summary-item">
+                  <img
+                    src="https://images.unsplash.com/photo-1591076482161-42ce6da69f67?auto=format&fit=crop&w=220&q=80"
+                    alt="Titanium Slim Frame"
+                  />
+                  <div class="summary-item__content">
+                    <h3>Titanium Slim Frame</h3>
+                    <p>Màu sắc: Bạc sáng</p>
+                    <span>SL: 1</span>
+                  </div>
+                  <strong>1.250.000d</strong>
+                </article>
+              </div>
+
+              <div class="coupon-box">
+                <label for="coupon-code">Nhập mã giảm giá</label>
+                <div class="coupon-box__row">
+                  <input
+                    id="coupon-code"
+                    type="text"
+                    placeholder="Mã giảm giá..."
+                  />
+                  <button type="button">Áp dụng</button>
+                </div>
+              </div>
+
+              <div class="summary-pricing">
+                <div><span>Tạm tính</span><strong>2.100.000d</strong></div>
+                <div><span>Phí vận chuyển</span><strong>Miễn phí</strong></div>
+                <div class="discount-row">
+                  <span>Giảm giá</span><strong>-100.000d</strong>
+                </div>
+              </div>
+
+              <div class="summary-total">
+                <span>Tổng cộng</span>
+                <strong>2.000.000d</strong>
+              </div>
+
+              <div class="payment-methods">
+                <p>PHƯƠNG THỨC THANH TOÁN</p>
+                <label class="payment-option is-active">
+                  <input type="radio" name="payment" checked />
+                  <span class="payment-option__content"
+                    >Thanh toán khi nhận hàng (COD)</span
+                  >
+                </label>
+                <label class="payment-option">
+                  <input type="radio" name="payment" />
+                  <span class="payment-option__content"
+                    >Chuyển khoản ngân hàng</span
+                  >
+                </label>
+              </div>
+
+              <button class="place-order-button" type="submit">
+                ĐẶT HÀNG NGAY
+              </button>
+            </aside>
+          </section>
+        </div>
+      </main>
+
+      <footer class="site-footer" id="footer">
+        <div class="site-container footer-top">
+          <div class="footer-brand">
+            <a
+              class="brand brand--footer"
+              href="./homepage.html"
+              aria-label="ClearVision"
+            >
+              <img
+                class="brand__mark"
+                src="../assets/images/common/logo.png"
+                alt="ClearVision logo"
+              />
+              <span class="brand__text">
+                <span class="brand__text-main">Clear</span
+                ><span class="brand__text-accent">Vision</span>
+              </span>
+            </a>
+            <p>
+              Thương hiệu kính mắt hàng đầu Việt Nam, mang đến phong cách và sự
+              bảo vệ tối ưu cho đôi mắt của bạn.
+            </p>
+            <div class="footer-socials">
+              <a href="#" aria-label="Facebook">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path
+                    d="M13 22v-8h3l1-4h-4V7.5c0-1.16.4-1.95 2.08-1.95H17V2.14C16.63 2.09 15.38 2 13.92 2 10.87 2 9 3.86 9 7.28V10H6v4h3v8h4Z"
+                  ></path>
+                </svg>
+              </a>
+              <a href="#" aria-label="Instagram">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path
+                    d="M7 3h10a4 4 0 0 1 4 4v10a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V7a4 4 0 0 1 4-4Zm0 2a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2Zm5 2.5A4.5 4.5 0 1 1 7.5 12 4.5 4.5 0 0 1 12 7.5Zm0 2A2.5 2.5 0 1 0 14.5 12 2.5 2.5 0 0 0 12 9.5Zm4.75-3a1 1 0 1 1-1 1a1 1 0 0 1 1-1Z"
+                  ></path>
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <div class="footer-column">
+            <h3>Sản phẩm</h3>
+            <a href="./shop.html?category=gong-kinh-can">Gọng kính cận</a>
+            <a href="./shop.html?category=trong-kinh">Tròng kính</a>
+            <a href="./shop.html?category=combo">Combo</a>
+            <a href="./shop.html?category=phu-kien">Phụ kiện</a>
+          </div>
+
+          <div class="footer-column">
+            <h3>Hỗ trợ</h3>
+            <a href="#">Hướng dẫn đo mắt</a>
+            <a href="./warranty.html">Chính sách bảo hành</a>
+            <a href="./return-request.html">Đổi trả &amp; Hoàn tiền</a>
+            <a href="#">Vận chuyển</a>
+          </div>
+
+          <div class="footer-column footer-column--contact">
+            <h3>Liên hệ</h3>
+            <p>123 Đường ABC, Phường Sài Gòn, TP. Hồ Chí Minh</p>
+            <p>1900 1234</p>
+            <p>contact@clearvision.vn</p>
+          </div>
+        </div>
+
+        <div class="site-container footer-bottom">
+          <p>&copy; 2024 ClearVision. Tất cả các quyền được bảo lưu.</p>
+          <div class="footer-bottom__links">
+            <a href="#">Điều khoản dịch vụ</a>
+            <a href="#">Chính sách bảo mật</a>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script src="../assets/js/public-nav.js?v=20260402-1"></script>
+    <script src="../assets/js/checkout.js?v=20260402-1"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
