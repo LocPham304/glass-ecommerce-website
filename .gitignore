@@ -1,0 +1,20 @@
+# Runtime/session files
+storage/sessions/sess_*
+
+# Keep runtime folders available
+!storage/sessions/.gitkeep
+!uploads/prescriptions/.gitkeep
+
+# Prescription uploads are runtime data
+uploads/prescriptions/*
+!uploads/prescriptions/.gitkeep
+
+# Uncomment these lines if uploaded product images are not needed for demo
+# uploads/products/*
+# !uploads/products/.gitkeep
+
+# OS/editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
