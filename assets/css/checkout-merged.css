@@ -1,0 +1,43 @@
+.address-helper {
+  margin: -6px 0 0;
+  color: #64748b;
+  font-size: 12px;
+  line-height: 18px;
+}
+
+.address-helper.field-row {
+  display: block;
+  grid-template-columns: none;
+}
+
+.address-helper.is-error {
+  color: #dc2626;
+}
+
+.upload-feedback {
+  margin: 12px 0 0;
+  color: #64748b;
+  font-size: 12px;
+  line-height: 18px;
+}
+
+[data-voucher-feedback] {
+  margin: 10px 0 0;
+  font-size: 12px;
+  line-height: 18px;
+}
+
+[data-voucher-feedback].is-error {
+  color: #fca5a5;
+}
+
+[data-voucher-feedback].is-success {
+  color: #86efac;
+}
+
+[data-address-district-display]:disabled,
+[data-address-ward]:disabled,
+[data-address-province]:disabled {
+  color: #475569;
+  opacity: 1;
+}
