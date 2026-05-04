@@ -245,10 +245,23 @@
 }
 
 .product-price {
+  display: grid;
+  gap: 2px;
+}
+
+.product-price__current {
   color: #ff7c1f;
   font-size: 16px;
   font-weight: 900;
   line-height: 22px;
+}
+
+.product-price__original {
+  color: #9aa6b2;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 18px;
+  text-decoration: line-through;
 }
 
 .status-pill {

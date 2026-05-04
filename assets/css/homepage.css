@@ -718,6 +718,20 @@ input {
   line-height: 28px;
 }
 
+.product-card__price-group {
+  display: grid;
+  gap: 2px;
+}
+
+.product-card__price-original {
+  margin: 0;
+  color: #9ca3af;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  text-decoration: line-through;
+}
+
 .product-card__add-form {
   position: relative;
   z-index: 2;

@@ -26,7 +26,7 @@ class ProductController extends Controller
             'bodyClass' => 'shop-body',
             'pageStyles' => [
                 'assets/css/homepage.css',
-                'assets/css/shop.css?v=20260418-1',
+                'assets/css/shop.css?v=20260504-2',
             ],
             'pageScripts' => [
                 'assets/js/mvc-site.js',
@@ -67,11 +67,11 @@ class ProductController extends Controller
             'bodyClass' => 'product-detail-body',
             'pageStyles' => [
                 'assets/css/homepage.css',
-                'assets/css/product-detail.css?v=20260418-7',
+                'assets/css/product-detail.css?v=20260504-9',
             ],
             'pageScripts' => [
                 'assets/js/mvc-site.js',
-                'assets/js/mvc-product-detail.js?v=20260418-4',
+                'assets/js/mvc-product-detail.js?v=20260504-6',
             ],
             'navigationCategories' => $categories,
             'product' => $product,

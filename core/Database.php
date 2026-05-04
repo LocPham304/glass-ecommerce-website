@@ -39,7 +39,7 @@ class Database
             );
         } catch (PDOException $exception) {
             throw new RuntimeException(
-                'Không thể kết nối MySQL. Hãy kiểm tra file config/database.php và database glass_shop_db_test. Chi tiết: '
+                'Không thể kết nối MySQL. Hãy kiểm tra file config/database.php và database db_glass_shop. Chi tiết: '
                 . $exception->getMessage()
             );
         }

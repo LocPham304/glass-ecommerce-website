@@ -121,6 +121,9 @@ $fallbackImage = asset('assets/images/about-us/eyewear-display.png');
             $productUrl = url('/product?id=' . rawurlencode((string) $product['id']));
             $productEditUrl = url('/admin/products/edit?id=' . rawurlencode((string) $product['id']));
             $productName = (string) ($product['name'] ?? 'Sáº£n pháº©m');
+            $currentPrice = (float) ($product['price'] ?? 0);
+            $originalPrice = (float) ($product['original_price'] ?? 0);
+            $hasSalePrice = $originalPrice > $currentPrice;
             ?>
             <article
               class="product-row"
@@ -153,7 +156,12 @@ $fallbackImage = asset('assets/images/about-us/eyewear-display.png');
               <div>
                 <span class="product-chip <?= e($chipClass) ?>"><?= e((string) ($product['category_name'] ?? '-')) ?></span>
               </div>
-              <div class="product-price"><?= e(format_currency($product['price'] ?? 0)) ?></div>
+              <div class="product-price">
+                <span class="product-price__current"><?= e(format_currency($currentPrice)) ?></span>
+                <?php if ($hasSalePrice): ?>
+                  <span class="product-price__original"><?= e(format_currency($originalPrice)) ?></span>
+                <?php endif; ?>
+              </div>
               <div>
                 <span class="status-pill <?= e($statusClass) ?>"><?= e($statusLabel) ?></span>
               </div>

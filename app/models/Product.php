@@ -6,6 +6,12 @@ use Core\Model;
 
 class Product extends Model
 {
+    public function __construct()
+    {
+        parent::__construct();
+        $this->ensureProductVariantPricingColumns();
+    }
+
     public function getFeaturedProducts(int $limit = 8): array
     {
         return $this->getCatalogProducts([
@@ -105,6 +111,14 @@ class Product extends Model
                     ORDER BY pv.created_at IS NULL, pv.created_at, pv.id
                     LIMIT 1
                 ) AS price,
+                (
+                    SELECT pv.original_price
+                    FROM product_variants pv
+                    WHERE pv.product_id = p.id
+                      AND (pv.is_active = 1 OR pv.is_active IS NULL)
+                    ORDER BY pv.created_at IS NULL, pv.created_at, pv.id
+                    LIMIT 1
+                ) AS original_price,
                 (
                     SELECT pv.color
                     FROM product_variants pv
@@ -273,6 +287,13 @@ class Product extends Model
                     LIMIT 1
                 ) AS price,
                 (
+                    SELECT pv.original_price
+                    FROM product_variants pv
+                    WHERE pv.product_id = p.id
+                    ORDER BY pv.created_at IS NULL, pv.created_at, pv.id
+                    LIMIT 1
+                ) AS original_price,
+                (
                     SELECT pv.stock_quantity
                     FROM product_variants pv
                     WHERE pv.product_id = p.id
@@ -373,6 +394,13 @@ class Product extends Model
                     LIMIT 1
                 ) AS price,
                 (
+                    SELECT pv.original_price
+                    FROM product_variants pv
+                    WHERE pv.product_id = p.id
+                    ORDER BY pv.created_at IS NULL, pv.created_at, pv.id
+                    LIMIT 1
+                ) AS original_price,
+                (
                     SELECT pv.stock_quantity
                     FROM product_variants pv
                     WHERE pv.product_id = p.id
@@ -455,10 +483,10 @@ class Product extends Model
             $variantStatement = $this->db->prepare('
                 INSERT INTO product_variants (
                     id, product_id, sku, variant_name, frame_style, lens_type, color, size, material,
-                    price, stock_quantity, image_3d_url, is_active, created_at, updated_at
+                    price, original_price, stock_quantity, image_3d_url, is_active, created_at, updated_at
                 ) VALUES (
                     :id, :product_id, :sku, :variant_name, :frame_style, :lens_type, :color, :size, :material,
-                    :price, :stock_quantity, :image_3d_url, :is_active, :created_at, :updated_at
+                    :price, :original_price, :stock_quantity, :image_3d_url, :is_active, :created_at, :updated_at
                 )
             ');
             $variantStatement->execute([
@@ -472,6 +500,7 @@ class Product extends Model
                 'size' => $data['size'] ?: null,
                 'material' => $data['material'] ?: null,
                 'price' => $data['price'],
+                'original_price' => $data['original_price'] ?? null,
                 'stock_quantity' => $data['stock_quantity'],
                 'image_3d_url' => $data['image_3d_url'] ?: null,
                 'is_active' => $isActive,
@@ -569,6 +598,7 @@ class Product extends Model
                     size = :size,
                     material = :material,
                     price = :price,
+                    original_price = :original_price,
                     stock_quantity = :stock_quantity,
                     image_3d_url = :image_3d_url,
                     is_active = :is_active,
@@ -585,6 +615,7 @@ class Product extends Model
                 'size' => $data['size'] ?: null,
                 'material' => $data['material'] ?: null,
                 'price' => $data['price'],
+                'original_price' => $data['original_price'] ?? null,
                 'stock_quantity' => $newStock,
                 'image_3d_url' => $data['image_3d_url'] ?: null,
                 'is_active' => $isActive,
@@ -709,6 +740,7 @@ class Product extends Model
                 size,
                 material,
                 price,
+                original_price,
                 stock_quantity,
                 image_3d_url
             FROM product_variants
@@ -847,5 +879,31 @@ class Product extends Model
         ]);
 
         return $statement->fetchAll();
+    }
+
+    protected function ensureProductVariantPricingColumns(): void
+    {
+        if ($this->productVariantsColumnExists('original_price')) {
+            return;
+        }
+
+        $this->db->exec('ALTER TABLE product_variants ADD COLUMN original_price decimal(10,2) NULL AFTER price');
+    }
+
+    protected function productVariantsColumnExists(string $column): bool
+    {
+        $statement = $this->db->prepare('
+            SELECT 1
+            FROM INFORMATION_SCHEMA.COLUMNS
+            WHERE TABLE_SCHEMA = DATABASE()
+              AND TABLE_NAME = "product_variants"
+              AND COLUMN_NAME = :column
+            LIMIT 1
+        ');
+        $statement->execute([
+            'column' => $column,
+        ]);
+
+        return (bool) $statement->fetch();
     }
 }

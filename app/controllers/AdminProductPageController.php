@@ -19,7 +19,7 @@ class AdminProductPageController extends Controller
             'layout' => 'layouts/admin',
             'pageStyles' => [
                 'assets/css/admin.css',
-                'assets/css/admin-products.css?v=20260418-1',
+                'assets/css/admin-products.css?v=20260504-2',
                 'assets/css/admin-products-manage.css',
             ],
             'pageScripts' => [
@@ -47,7 +47,7 @@ class AdminProductPageController extends Controller
                 'assets/css/admin.css',
                 'assets/css/admin-products.css',
                 'assets/css/admin-product-create.css',
-                'assets/css/admin-product-create-form.css?v=20260418-1',
+                'assets/css/admin-product-create-form.css?v=20260504-2',
             ],
             'pageScripts' => [
                 'assets/js/admin.js',
@@ -87,7 +87,7 @@ class AdminProductPageController extends Controller
                 'assets/css/admin.css',
                 'assets/css/admin-products.css',
                 'assets/css/admin-product-create.css',
-                'assets/css/admin-product-create-form.css?v=20260418-1',
+                'assets/css/admin-product-create-form.css?v=20260504-2',
             ],
             'pageScripts' => [
                 'assets/js/admin.js',
@@ -129,6 +129,7 @@ class AdminProductPageController extends Controller
         $submitMode = post_value('submit_mode', 'publish');
         $status = post_value('status', 'active');
         $isActive = ($status === 'active' && $submitMode !== 'draft') ? 1 : 0;
+        $price = (float) post_value('price', '0');
 
         try {
             $productModel->createProductWithVariant([
@@ -145,7 +146,8 @@ class AdminProductPageController extends Controller
                 'color' => $this->postListValue('color'),
                 'size' => $this->postListValue('size'),
                 'material' => $this->postListValue('material'),
-                'price' => (float) post_value('price', '0'),
+                'price' => $price,
+                'original_price' => $this->normalizeOriginalPrice(post_value('original_price'), $price),
                 'stock_quantity' => (int) post_value('stock_quantity', '0'),
                 'image_3d_url' => post_value('image_3d_url'),
                 'image_urls' => $uploadedImages,
@@ -212,6 +214,7 @@ class AdminProductPageController extends Controller
         $submitMode = post_value('submit_mode', 'publish');
         $status = post_value('status', 'active');
         $isActive = ($status === 'active' && $submitMode !== 'draft') ? 1 : 0;
+        $price = (float) post_value('price', '0');
         $existingImagePaths = array_values(array_unique(array_filter(array_map(
             static fn(array $image): string => trim((string) ($image['image_url'] ?? '')),
             $existingProduct['images'] ?? []
@@ -232,7 +235,8 @@ class AdminProductPageController extends Controller
                 'color' => $this->postListValue('color'),
                 'size' => $this->postListValue('size'),
                 'material' => $this->postListValue('material'),
-                'price' => (float) post_value('price', '0'),
+                'price' => $price,
+                'original_price' => $this->normalizeOriginalPrice(post_value('original_price'), $price),
                 'stock_quantity' => (int) post_value('stock_quantity', '0'),
                 'image_3d_url' => post_value('image_3d_url'),
                 'image_urls' => $uploadedImages,
@@ -428,6 +432,17 @@ class AdminProductPageController extends Controller
         }
 
         return $brandId;
+    }
+
+    protected function normalizeOriginalPrice(string $value, float $price): ?float
+    {
+        $originalPrice = (float) trim($value);
+
+        if ($originalPrice <= 0 || $originalPrice <= $price) {
+            return null;
+        }
+
+        return $originalPrice;
     }
 
     protected function deleteUploadedFiles(array $relativePaths): void

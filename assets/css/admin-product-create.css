@@ -77,11 +77,13 @@
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 16px;
+  align-items: start;
 }
 
 .create-field {
   display: grid;
   gap: 8px;
+  align-content: start;
 }
 
 .create-field--full {

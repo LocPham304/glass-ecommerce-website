@@ -44,11 +44,16 @@ $variantsForJs = array_map(static function (array $variant) use ($product, $vari
         'color_options' => parse_option_list($variant['color'] ?? null),
         'size_options' => parse_option_list($variant['size'] ?? null),
         'price' => (float) ($variant['price'] ?? 0),
+        'original_price' => isset($variant['original_price']) ? (float) $variant['original_price'] : null,
         'stock_quantity' => (int) ($variant['stock_quantity'] ?? 0),
         'product_type' => (string) ($product['product_type'] ?? ''),
         'image_url' => $image,
     ];
 }, $product['variants'] ?? []);
+
+$defaultPrice = (float) ($defaultVariant['price'] ?? 0);
+$defaultOriginalPrice = isset($defaultVariant['original_price']) ? (float) $defaultVariant['original_price'] : 0.0;
+$hasDefaultSalePrice = $defaultOriginalPrice > $defaultPrice;
 ?>
 
 <main class="detail-main">
@@ -131,12 +136,16 @@ $variantsForJs = array_map(static function (array $variant) use ($product, $vari
         <p class="product-category"><?= e($product['category_name']) ?></p>
         <h1><?= e($product['name']) ?></h1>
 
-        <p class="product-price" id="product-price">
-          <?= e(format_currency($defaultVariant['price'] ?? 0)) ?>
-        </p>
+        <div class="product-price-block">
+          <p class="product-price" id="product-price">
+            <?= e(format_currency($defaultPrice)) ?>
+          </p>
+          <p class="product-price-original<?= $hasDefaultSalePrice ? '' : ' is-hidden' ?>" id="product-original-price">
+            <?= e(format_currency($defaultOriginalPrice)) ?>
+          </p>
+        </div>
 
         <div class="summary-group">
-          <p class="summary-label">Thương hiệu: <?= e($product['brand_name']) ?></p>
           <p class="summary-label">Loại đơn phù hợp: <strong id="product-type-label"><?= e(order_type_label($product['product_type'] ?? null)) ?></strong></p>
           <?php if ($colors !== []): ?>
             <div class="color-options">
@@ -203,7 +212,6 @@ $variantsForJs = array_map(static function (array $variant) use ($product, $vari
           <h2>Thông tin nổi bật</h2>
           <div class="feature-list">
             <p><strong>Loại sản phẩm:</strong> <?= e($product['product_type'] ?: $product['category_name']) ?></p>
-            <p><strong>Thương hiệu:</strong> <?= e($product['brand_name']) ?></p>
             <p><strong>Danh mục:</strong> <?= e($product['category_name']) ?></p>
             <?php if ($defaultVariant !== null): ?>
               <p><strong>SKU mặc định:</strong> <?= e($defaultVariant['sku']) ?></p>
@@ -292,7 +300,17 @@ $variantsForJs = array_map(static function (array $variant) use ($product, $vari
                   </a>
                 </h3>
                 <div class="related-card__footer">
-                  <p class="related-card__price"><?= e(format_currency($relatedProduct['price'])) ?></p>
+                  <?php
+                    $relatedPrice = (float) ($relatedProduct['price'] ?? 0);
+                    $relatedOriginalPrice = (float) ($relatedProduct['original_price'] ?? 0);
+                    $relatedHasSalePrice = $relatedOriginalPrice > $relatedPrice;
+                  ?>
+                  <div class="related-card__price-group">
+                    <p class="related-card__price"><?= e(format_currency($relatedPrice)) ?></p>
+                    <?php if ($relatedHasSalePrice): ?>
+                      <p class="related-card__price-original"><?= e(format_currency($relatedOriginalPrice)) ?></p>
+                    <?php endif; ?>
+                  </div>
                   <?php if ($relatedVariantId !== ''): ?>
                     <form class="related-card__add-form" method="POST" action="<?= e(url('/cart/add')) ?>">
                       <input type="hidden" name="variant_id" value="<?= e($relatedVariantId) ?>" />

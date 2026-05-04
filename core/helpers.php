@@ -191,7 +191,37 @@ function flash(string $key, ?string $message = null): ?string
 
 function auth_user(): ?array
 {
-    return $_SESSION['auth_user'] ?? null;
+    static $resolvedUser = false;
+
+    if ($resolvedUser !== false) {
+        return $resolvedUser;
+    }
+
+    $sessionUser = $_SESSION['auth_user'] ?? null;
+    if (!is_array($sessionUser) || ($sessionUser['id'] ?? '') === '') {
+        $resolvedUser = null;
+        return null;
+    }
+
+    $userModel = new \App\Models\User();
+    $currentUser = $userModel->findById((string) $sessionUser['id']);
+
+    if ($currentUser === null) {
+        unset($_SESSION['auth_user']);
+        $resolvedUser = null;
+        return null;
+    }
+
+    $resolvedUser = [
+        'id' => $currentUser['id'],
+        'full_name' => $currentUser['full_name'],
+        'email' => $currentUser['email'],
+        'role_name' => $currentUser['role_name'],
+    ];
+
+    $_SESSION['auth_user'] = $resolvedUser;
+
+    return $resolvedUser;
 }
 
 function is_authenticated(): bool
