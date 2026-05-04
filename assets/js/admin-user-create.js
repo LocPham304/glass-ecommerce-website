@@ -2,6 +2,7 @@ function initAdminUserCreatePage() {
   const avatarInput = document.querySelector("[data-user-avatar]");
   const avatarPreview = document.querySelector("[data-avatar-preview]");
   const form = document.querySelector("[data-user-create-form]");
+  const formMode = form?.getAttribute("data-form-mode") || "create";
   const draftButton = document.querySelector("[data-save-draft]");
   const roleSelect = document.querySelector("[data-user-role]");
   const roleTitle = document.querySelector("[data-role-title]");
@@ -18,13 +19,23 @@ function initAdminUserCreatePage() {
       description: "Toàn quyền quản trị hệ thống, quản lý dữ liệu và điều phối nghiệp vụ.",
       icon: "fa-solid fa-user-shield",
     },
-    staff: {
-      title: "Nhan vien",
-      description: "Phụ trách vận hành đơn hàng, hỗ trợ khách hàng và xử lý nghiệp vụ hằng ngày.",
+    manager: {
+      title: "Quản lý",
+      description: "Theo dõi vận hành, quản lý báo cáo và điều phối các nhóm nghiệp vụ.",
+      icon: "fa-solid fa-user-tie",
+    },
+    sales: {
+      title: "Nhân viên bán hàng",
+      description: "Phụ trách tư vấn, xử lý đơn hàng và hỗ trợ khách hàng trong quá trình mua sắm.",
+      icon: "fa-solid fa-user-gear",
+    },
+    operations: {
+      title: "Nhân viên vận hành",
+      description: "Phụ trách vận hành đơn hàng, đổi trả và các nghiệp vụ nội bộ hằng ngày.",
       icon: "fa-solid fa-user-gear",
     },
     customer: {
-      title: "Khach hang",
+      title: "Khách hàng",
       description: "Tài khoản mua hàng, theo dõi đơn và sử dụng voucher trên website.",
       icon: "fa-solid fa-user",
     },
@@ -61,24 +72,25 @@ function initAdminUserCreatePage() {
     avatarPreview.innerHTML = `
       <i class="fa-regular fa-image" aria-hidden="true"></i>
       <strong>${file.name}</strong>
-        <span>Nhan de thay doi anh dai dien</span>
+        <span>Nhấn để thay đổi ảnh đại diện</span>
     `;
   });
 
   roleSelect?.addEventListener("change", updateRolePreview);
 
   draftButton?.addEventListener("click", () => {
-    showToast("Da luu ho so nguoi dung o trang thai nhap.");
+    showToast("Đã lưu hồ sơ người dùng ở trạng thái nháp.");
   });
 
   form?.addEventListener("submit", (event) => {
-    event.preventDefault();
-    showToast("Tai khoan nguoi dung moi da duoc tao thanh cong.");
+    showToast(
+      formMode === "edit"
+        ? "Thông tin người dùng đang được cập nhật."
+        : "Tài khoản người dùng mới đang được tạo."
+    );
   });
 
   updateRolePreview();
 }
 
 document.addEventListener("DOMContentLoaded", initAdminUserCreatePage);
-
-

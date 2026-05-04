@@ -156,7 +156,7 @@
 .product-table__head,
 .product-row {
   display: grid;
-  grid-template-columns: 40px 88px minmax(220px, 1.4fr) 110px 110px 120px 120px 110px;
+  grid-template-columns: 40px 88px minmax(220px, 1.4fr) 120px 120px 120px 110px;
   gap: 12px;
   align-items: center;
 }
@@ -244,18 +244,24 @@
   color: #f08c21;
 }
 
-.product-brand {
-  color: #415d6a;
-  font-size: 14px;
-  font-weight: 700;
-  line-height: 20px;
+.product-price {
+  display: grid;
+  gap: 2px;
 }
 
-.product-price {
+.product-price__current {
   color: #ff7c1f;
   font-size: 16px;
   font-weight: 900;
   line-height: 22px;
+}
+
+.product-price__original {
+  color: #9aa6b2;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 18px;
+  text-decoration: line-through;
 }
 
 .status-pill {
@@ -393,7 +399,7 @@
 
   .product-table__head,
   .product-row {
-    grid-template-columns: 40px 88px minmax(220px, 1fr) 110px 110px 120px 120px;
+    grid-template-columns: 40px 88px minmax(220px, 1fr) 120px 120px 120px;
   }
 
   .product-table__head span:last-child,
@@ -426,12 +432,11 @@
 
   .product-row > :nth-child(4),
   .product-row > :nth-child(5),
-  .product-row > :nth-child(6),
-  .product-row > :nth-child(7) {
+  .product-row > :nth-child(6) {
     grid-column: 3;
   }
 
-  .product-row > :nth-child(8) {
+  .product-row > :nth-child(7) {
     grid-column: 3;
     justify-self: start;
   }

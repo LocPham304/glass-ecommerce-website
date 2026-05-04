@@ -131,6 +131,45 @@
   min-height: 320px;
 }
 
+.report-empty-chart,
+.report-empty-list {
+  display: grid;
+  justify-items: center;
+  align-content: center;
+  gap: 10px;
+  min-height: 260px;
+  padding: 28px;
+  border: 1px dashed #dbe4ec;
+  border-radius: 18px;
+  background: #fbfdff;
+  color: #8fa0ad;
+  text-align: center;
+}
+
+.report-empty-chart i,
+.report-empty-list i {
+  color: #b1bcc8;
+  font-size: 28px;
+}
+
+.report-empty-chart strong,
+.report-empty-list strong {
+  color: #415d6a;
+  font-size: 16px;
+  font-weight: 800;
+  line-height: 22px;
+}
+
+.report-empty-chart span,
+.report-empty-list span {
+  font-size: 13px;
+  line-height: 20px;
+}
+
+.report-empty-list {
+  min-height: 220px;
+}
+
 .report-top-products {
   display: grid;
   gap: 14px;

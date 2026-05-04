@@ -1,0 +1,24 @@
+RewriteEngine On
+
+RewriteRule ^$ public/ [R=302,L]
+RewriteRule ^index\.php$ public/ [R=302,L]
+
+RewriteRule ^pages/homepage\.html$ public/ [R=302,L]
+RewriteRule ^pages/shop\.html$ public/shop [R=302,L]
+RewriteRule ^pages/product-detail\.html$ public/shop [R=302,L]
+RewriteRule ^pages/login\.html$ public/login [R=302,L]
+RewriteRule ^pages/register\.html$ public/register [R=302,L]
+RewriteRule ^pages/cart\.html$ public/cart [R=302,L]
+RewriteRule ^pages/checkout\.html$ public/checkout [R=302,L]
+RewriteRule ^pages/profile\.html$ public/profile [R=302,L]
+RewriteRule ^pages/my-orders\.html$ public/orders [R=302,L]
+RewriteRule ^pages/order-detail\.html$ public/orders [R=302,L]
+RewriteRule ^pages/return-request\.html$ public/after-sales [R=302,L]
+
+RewriteRule ^admin/dashboard\.html$ public/admin [R=302,L]
+RewriteRule ^admin/customers-manage\.html$ public/admin/customers [R=302,L]
+RewriteRule ^admin/products-manage\.html$ public/admin/products [R=302,L]
+RewriteRule ^admin/product-create\.html$ public/admin/products [R=302,L]
+RewriteRule ^admin/orders-manage\.html$ public/admin/orders [R=302,L]
+RewriteRule ^admin/refunds-manage\.html$ public/admin/refunds [R=302,L]
+RewriteRule ^admin/reports\.html$ public/admin/reports [R=302,L]

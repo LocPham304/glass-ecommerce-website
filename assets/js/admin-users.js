@@ -3,9 +3,10 @@ function initAdminUsersPage() {
   const roleFilter = document.querySelector("[data-role-filter]");
   const statusFilter = document.querySelector("[data-status-filter]");
   const tabs = document.querySelectorAll(".user-tab");
-  const rows = document.querySelectorAll(".user-row");
+  const rows = Array.from(document.querySelectorAll(".user-row"));
   const summary = document.querySelector("[data-user-summary]");
   const emptyState = document.querySelector("[data-user-empty]");
+  const deleteForms = document.querySelectorAll("[data-delete-user-form]");
   const overviewStaff = document.querySelector("[data-overview-staff]");
   const overviewCustomer = document.querySelector("[data-overview-customer]");
   const overviewActive = document.querySelector("[data-overview-active]");
@@ -13,11 +14,16 @@ function initAdminUsersPage() {
 
   let activeKind = "all";
 
-  const normalize = (value) => value.trim().toLowerCase();
+  const normalize = (value) =>
+    String(value || "")
+      .trim()
+      .toLowerCase()
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "");
   const totalRows = rows.length;
-  const staffRows = [...rows].filter((row) => row.dataset.kind === "staff");
-  const customerRows = [...rows].filter((row) => row.dataset.kind === "customer");
-  const activeRows = [...rows].filter((row) => row.dataset.status === "Hoạt động");
+  const staffRows = rows.filter((row) => row.dataset.kind === "staff");
+  const customerRows = rows.filter((row) => row.dataset.kind === "customer");
+  const activeRows = rows.filter((row) => row.dataset.status === "active");
 
   const updateStaticCounts = () => {
     if (overviewStaff) overviewStaff.textContent = `${staffRows.length}`;
@@ -58,10 +64,13 @@ function initAdminUsersPage() {
     });
 
     const scopeTotal = activeKind === "staff" ? staffRows.length : activeKind === "customer" ? customerRows.length : totalRows;
-    const scopeLabel = activeKind === "staff" ? "nhan vien" : activeKind === "customer" ? "khach hang" : "nguoi dung";
+    const scopeLabel = activeKind === "staff" ? "nhân viên" : activeKind === "customer" ? "khách hàng" : "người dùng";
 
     if (summary) {
-      summary.textContent = `Hien thi ${visibleCount ? 1 : 0} - ${visibleCount} trong so ${scopeTotal} ${scopeLabel}`;
+      summary.textContent =
+        visibleCount === 0
+          ? `Không tìm thấy ${scopeLabel} phù hợp`
+          : `Hiển thị 1 - ${visibleCount} trong số ${scopeTotal} ${scopeLabel}`;
     }
 
     if (emptyState) {
@@ -83,10 +92,21 @@ function initAdminUsersPage() {
     field?.addEventListener("change", applyFilters);
   });
 
+  deleteForms.forEach((form) => {
+    form.addEventListener("submit", (event) => {
+      const userName = form.getAttribute("data-user-name") || "người dùng này";
+      const confirmed = window.confirm(
+        `Bạn có chắc muốn xóa "${userName}"? Tài khoản có dữ liệu nghiệp vụ liên quan sẽ không thể xóa.`
+      );
+
+      if (!confirmed) {
+        event.preventDefault();
+      }
+    });
+  });
+
   updateStaticCounts();
   applyFilters();
 }
 
 document.addEventListener("DOMContentLoaded", initAdminUsersPage);
-
-

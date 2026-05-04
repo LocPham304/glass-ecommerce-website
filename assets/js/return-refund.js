@@ -1,11 +1,20 @@
-﻿function initReturnRefundPage() {
-  const menuButton = document.querySelector(".menu-toggle");
-  const nav = document.querySelector(".site-nav");
+function initReturnRefundPage() {
+  const form = document.querySelector(".refund-form");
+  const orderCodeInput = form?.querySelector('input[name="order_code"]');
+  const orderIdInput = form?.querySelector('input[name="order_id"]');
+  const orderCodeMap = window.afterSalesOrderCodeMap || {};
 
-  menuButton?.addEventListener("click", () => {
-    const isOpen = nav?.classList.toggle("is-open");
-    menuButton.setAttribute("aria-expanded", String(Boolean(isOpen)));
-  });
+  const syncOrderId = () => {
+    if (!orderCodeInput || !orderIdInput) {
+      return;
+    }
+
+    const orderCode = orderCodeInput.value.trim().toUpperCase();
+    orderIdInput.value = orderCodeMap[orderCode] || "";
+  };
+
+  orderCodeInput?.addEventListener("input", syncOrderId);
+  orderCodeInput?.addEventListener("change", syncOrderId);
 
   document.querySelectorAll(".faq-trigger").forEach((trigger) => {
     trigger.addEventListener("click", () => {
@@ -36,10 +45,7 @@
     });
   });
 
-  document.querySelector(".refund-form")?.addEventListener("submit", (event) => {
-    event.preventDefault();
-  });
+  syncOrderId();
 }
 
 document.addEventListener("DOMContentLoaded", initReturnRefundPage);
-

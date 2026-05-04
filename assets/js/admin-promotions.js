@@ -1,9 +1,9 @@
-﻿function initAdminPromotionsPage() {
+function initAdminPromotionsPage() {
   const searchInput = document.querySelector("[data-promo-search]");
   const codeFilter = document.querySelector("[data-filter-code]");
   const typeFilter = document.querySelector("[data-filter-type]");
   const statusFilter = document.querySelector("[data-filter-status]");
-  const rows = document.querySelectorAll(".promotion-row");
+  const rows = Array.from(document.querySelectorAll(".promotion-row"));
   const summary = document.querySelector("[data-promo-summary]");
   const createButton = document.querySelector("[data-create-voucher]");
   const toast = document.querySelector("[data-admin-toast]");
@@ -22,7 +22,12 @@
     }, 2200);
   };
 
-  const normalize = (value) => value.trim().toLowerCase();
+  const normalize = (value) =>
+    String(value || "")
+      .trim()
+      .toLowerCase()
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "");
 
   const applyFilters = () => {
     const search = normalize(searchInput?.value || "");
@@ -51,7 +56,10 @@
     });
 
     if (summary) {
-      summary.textContent = `Hiển thị 1 - ${visibleCount} trong số 18 voucher`;
+      summary.textContent =
+        visibleCount === 0
+          ? "Không tìm thấy voucher phù hợp"
+          : `Hiển thị 1 - ${visibleCount} trong số ${rows.length} voucher`;
     }
   };
 
@@ -68,4 +76,3 @@
 }
 
 document.addEventListener("DOMContentLoaded", initAdminPromotionsPage);
-

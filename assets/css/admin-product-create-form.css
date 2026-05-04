@@ -1,0 +1,117 @@
+.create-field--compact {
+  margin-top: 16px;
+}
+
+.image-uploader__hint {
+  margin: 14px 0 0;
+  color: #97a4b0;
+  font-size: 13px;
+  line-height: 21px;
+}
+
+.product-image-gallery {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.product-image-gallery:empty {
+  display: none;
+}
+
+.product-image-gallery__item {
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid #e6edf4;
+  border-radius: 14px;
+  background: #fbfdff;
+}
+
+.product-image-gallery__item img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}
+
+.product-image-gallery__item figcaption {
+  padding: 8px 10px 10px;
+  color: #5f7180;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 18px;
+  text-align: center;
+}
+
+.product-create-note {
+  padding: 16px 18px;
+  border: 1px solid #e6edf4;
+  border-radius: 14px;
+  background: #fbfdff;
+}
+
+.product-create-note strong {
+  display: block;
+  color: #415d6a;
+  font-size: 15px;
+  font-weight: 800;
+  line-height: 20px;
+}
+
+.product-create-note p {
+  margin: 6px 0 0;
+  color: #97a4b0;
+  font-size: 13px;
+  line-height: 21px;
+}
+
+.variant-checkbox-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(128px, 1fr));
+  gap: 10px;
+  min-height: 48px;
+  padding: 12px;
+  border: 1px solid #dfe7ef;
+  border-radius: 14px;
+  background: #f8fafc;
+}
+
+.variant-checkbox-grid--compact {
+  grid-template-columns: repeat(auto-fit, minmax(72px, 1fr));
+}
+
+.variant-checkbox {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 36px;
+  margin: 0;
+  padding: 8px 10px;
+  border: 1px solid #e6edf4;
+  border-radius: 10px;
+  background: #ffffff;
+  color: #415d6a;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 18px;
+  cursor: pointer;
+  transition:
+    border-color 0.2s ease,
+    background 0.2s ease,
+    color 0.2s ease;
+}
+
+.variant-checkbox:has(input:checked) {
+  border-color: rgba(240, 140, 33, 0.48);
+  background: rgba(240, 140, 33, 0.1);
+  color: #d66f08;
+}
+
+.variant-checkbox input {
+  width: 16px;
+  height: 16px;
+  margin: 0;
+  accent-color: #f08c21;
+  flex-shrink: 0;
+}
