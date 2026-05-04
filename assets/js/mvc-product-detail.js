@@ -12,6 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const quantityValue = document.querySelector("#quantity-value");
   const quantityInput = document.querySelector("#quantity-input");
   const productPrice = document.querySelector("#product-price");
+  const productOriginalPrice = document.querySelector("#product-original-price");
   const variantSku = document.querySelector("#variant-sku");
   const variantStock = document.querySelector("#variant-stock");
   const productTypeLabel = document.querySelector("#product-type-label");
@@ -23,14 +24,16 @@ document.addEventListener("DOMContentLoaded", () => {
   const colorButtons = Array.from(document.querySelectorAll(".color-option[data-color]"));
   const sizeButtons = Array.from(document.querySelectorAll(".size-option[data-size]"));
   const currencyFormatter = new Intl.NumberFormat("vi-VN");
+  const currencySuffix = "\u0111";
   const orderTypeLabels = {
-    ready_stock: "Đơn có sẵn",
+    ready_stock: "\u0110\u01a1n c\u00f3 s\u1eb5n",
     pre_order: "Pre-order",
-    prescription: "Đơn cắt kính theo toa",
+    prescription: "\u0110\u01a1n c\u1eaft k\u00ednh theo toa",
   };
   const visibleThumbs = 4;
   let thumbWindowStart = 0;
   let imageZoomScale = 1;
+
   const variants = (() => {
     if (!purchaseForm?.dataset.variants) {
       return [];
@@ -69,7 +72,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const activeColor = getActiveColor();
     const activeSize = getActiveSize();
 
-    let variant =
+    const variant =
       variants.find((item) => {
         const colorMatched = variantSupportsOption(item, "color", activeColor);
         const sizeMatched = variantSupportsOption(item, "size", activeSize);
@@ -176,7 +179,18 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     if (productPrice) {
-      productPrice.textContent = `${currencyFormatter.format(Number(variant.price) || 0)}đ`;
+      productPrice.textContent = `${currencyFormatter.format(Number(variant.price) || 0)}${currencySuffix}`;
+    }
+
+    if (productOriginalPrice) {
+      const originalPrice = Number(variant.original_price) || 0;
+      const currentPrice = Number(variant.price) || 0;
+      const hasSalePrice = originalPrice > currentPrice;
+
+      productOriginalPrice.textContent = hasSalePrice
+        ? `${currencyFormatter.format(originalPrice)}${currencySuffix}`
+        : "";
+      productOriginalPrice.classList.toggle("is-hidden", !hasSalePrice);
     }
 
     if (variantSku) {
@@ -189,7 +203,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (productTypeLabel) {
       productTypeLabel.textContent =
-        orderTypeLabels[variant.product_type] || variant.product_type || "Chưa xác định";
+        orderTypeLabels[variant.product_type] || variant.product_type || "Ch\u01b0a x\u00e1c \u0111\u1ecbnh";
     }
 
     if (mainImage && variant.image_url) {
@@ -211,7 +225,9 @@ document.addEventListener("DOMContentLoaded", () => {
         variant.product_type === "ready_stock" &&
         Number(variant.stock_quantity || 0) <= 0;
       addToCartButton.disabled = outOfStock;
-      addToCartButton.textContent = outOfStock ? "Tạm hết hàng" : "Thêm vào giỏ hàng";
+      addToCartButton.textContent = outOfStock
+        ? "T\u1ea1m h\u1ebft h\u00e0ng"
+        : "Th\u00eam v\u00e0o gi\u1ecf h\u00e0ng";
     }
   };
 

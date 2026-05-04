@@ -96,6 +96,9 @@ $productImageFallback = asset('assets/images/about-us/eyewear-display.png');
             <?php
               $productDetailUrl = url('/product') . '?id=' . urlencode($product['id']);
               $defaultVariantId = (string) ($product['default_variant_id'] ?? '');
+              $currentPrice = (float) ($product['price'] ?? 0);
+              $originalPrice = (float) ($product['original_price'] ?? 0);
+              $hasSalePrice = $originalPrice > $currentPrice;
             ?>
             <article class="product-card">
               <a
@@ -117,7 +120,12 @@ $productImageFallback = asset('assets/images/about-us/eyewear-display.png');
                 <h3 class="product-card__name"><?= e($product['name']) ?></h3>
                
                 <div class="product-card__footer">
-                  <p class="product-card__price"><?= e(format_currency($product['price'])) ?></p>
+                  <div class="product-card__price-group">
+                    <p class="product-card__price"><?= e(format_currency($currentPrice)) ?></p>
+                    <?php if ($hasSalePrice): ?>
+                      <p class="product-card__price-original"><?= e(format_currency($originalPrice)) ?></p>
+                    <?php endif; ?>
+                  </div>
                   <?php if ($defaultVariantId !== ''): ?>
                     <form class="product-card__add-form" method="POST" action="<?= e(url('/cart/add')) ?>">
                       <input type="hidden" name="variant_id" value="<?= e($defaultVariantId) ?>" />

@@ -73,6 +73,7 @@ CREATE TABLE `product_variants` (
   `size` varchar(50),
   `material` varchar(100),
   `price` decimal(10,2) NOT NULL,
+  `original_price` decimal(10,2),
   `stock_quantity` int DEFAULT 0,
   `image_3d_url` varchar(255),
   `is_active` boolean,

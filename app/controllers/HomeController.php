@@ -19,7 +19,7 @@ class HomeController extends Controller
             'pageTitle' => 'ClearVision | Homepage',
             'bodyClass' => 'homepage-body',
             'pageStyles' => [
-                'assets/css/homepage.css?v=20260418-1',
+                'assets/css/homepage.css?v=20260504-2',
             ],
             'pageScripts' => [
                 'assets/js/mvc-site.js',

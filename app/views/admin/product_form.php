@@ -100,7 +100,6 @@ $frameStyleOptions = array_values(array_unique(array_merge($frameStyleOptions, $
       <div class="create-section">
         <div class="create-section__heading">
           <h2>Thông tin cơ bản</h2>
-          <p>Nhập các thông tin chính để sản phẩm hiển thị đầy đủ trên hệ thống bán hàng.</p>
         </div>
 
         <div class="create-form-grid">
@@ -162,13 +161,17 @@ $frameStyleOptions = array_values(array_unique(array_merge($frameStyleOptions, $
       <div class="create-section">
         <div class="create-section__heading">
           <h2>Giá bán và tồn kho</h2>
-          <p>Thiết lập mức giá, số lượng tồn và các thuộc tính cơ bản của biến thể đầu tiên.</p>
         </div>
 
         <div class="create-form-grid">
           <label class="create-field">
             <span>Giá bán <em>*</em></span>
             <input type="number" name="price" min="0" step="1000" placeholder="4250000" value="<?= e((string) ($product['price'] ?? '')) ?>" required />
+          </label>
+
+          <label class="create-field">
+            <span>Giá niêm yết</span>
+            <input type="number" name="original_price" min="0" step="1000" placeholder="2650000" value="<?= e((string) ($product['original_price'] ?? '')) ?>" />
           </label>
 
           <label class="create-field">
@@ -249,7 +252,6 @@ $frameStyleOptions = array_values(array_unique(array_merge($frameStyleOptions, $
       <div class="create-section">
         <div class="create-section__heading">
           <h2>Cấu hình hiển thị</h2>
-          <p>Chọn loại sản phẩm, trạng thái xuất bản và bổ sung dữ liệu nâng cao nếu có.</p>
         </div>
 
         <div class="create-form-grid">
@@ -273,11 +275,6 @@ $frameStyleOptions = array_values(array_unique(array_merge($frameStyleOptions, $
           <label class="create-field">
             <span>Loại tròng</span>
             <input type="text" name="lens_type" placeholder="Blue Light, UV400..." value="<?= e((string) ($product['lens_type'] ?? '')) ?>" />
-          </label>
-
-          <label class="create-field">
-            <span>URL ảnh 3D</span>
-            <input type="url" name="image_3d_url" placeholder="https://example.com/model-3d" value="<?= e((string) ($product['image_3d_url'] ?? '')) ?>" />
           </label>
         </div>
       </div>
@@ -331,7 +328,6 @@ $frameStyleOptions = array_values(array_unique(array_merge($frameStyleOptions, $
       <section class="admin-panel create-panel create-panel--sticky">
         <div class="create-section__heading">
           <h2>Hành động</h2>
-          <p>Bạn có thể lưu nháp để hoàn thiện sau hoặc xuất bản ngay lên hệ thống quản trị.</p>
         </div>
 
         <div class="create-actions">

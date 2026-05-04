@@ -98,6 +98,9 @@ $typeLabels = [
                 $typeLabel = $typeLabels[$product['product_type'] ?? ''] ?? 'Sản phẩm';
                 $productDetailUrl = url('/product') . '?id=' . urlencode($product['id']);
                 $defaultVariantId = (string) ($product['default_variant_id'] ?? '');
+                $currentPrice = (float) ($product['price'] ?? 0);
+                $originalPrice = (float) ($product['original_price'] ?? 0);
+                $hasSalePrice = $originalPrice > $currentPrice;
                 ?>
                 <article class="shop-product-card">
                   <a
@@ -126,7 +129,12 @@ $typeLabels = [
                       </a>
                     </h3>
                     <div class="shop-product-card__footer">
-                      <p class="shop-product-card__price"><?= e(format_currency($product['price'])) ?></p>
+                      <div class="shop-product-card__price-group">
+                        <p class="shop-product-card__price"><?= e(format_currency($currentPrice)) ?></p>
+                        <?php if ($hasSalePrice): ?>
+                          <p class="shop-product-card__price-original"><?= e(format_currency($originalPrice)) ?></p>
+                        <?php endif; ?>
+                      </div>
                       <?php if ($defaultVariantId !== ''): ?>
                         <form class="shop-product-card__add-form" method="POST" action="<?= e(url('/cart/add')) ?>">
                           <input type="hidden" name="variant_id" value="<?= e($defaultVariantId) ?>" />

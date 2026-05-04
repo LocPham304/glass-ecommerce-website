@@ -37,12 +37,12 @@ INSERT IGNORE INTO products (
 ('PRD_003', 'CAT_LENS', 'BRD_GC', 'Blue Light Lens Premium', 'blue-light-lens-premium', 'prescription', 'Tròng kính chống ánh sáng xanh dành cho dân văn phòng.', 1, NOW(), NOW());
 
 INSERT IGNORE INTO product_variants (
-  id, product_id, sku, variant_name, frame_style, lens_type, color, size, material, price, stock_quantity, image_3d_url, is_active, created_at, updated_at
+  id, product_id, sku, variant_name, frame_style, lens_type, color, size, material, price, original_price, stock_quantity, image_3d_url, is_active, created_at, updated_at
 ) VALUES
-('VAR_001', 'PRD_001', 'RB-3016-W0365', 'Clubmaster Black Gold', 'Clubmaster', NULL, 'Đen', 'M', 'Acetate', 4250000, 10, NULL, 1, NOW(), NOW()),
-('VAR_002', 'PRD_001', 'RB-3016-TORT', 'Clubmaster Tortoise', 'Clubmaster', NULL, 'Đồi mồi', 'M', 'Acetate', 4350000, 6, NULL, 1, NOW(), NOW()),
-('VAR_003', 'PRD_002', 'PR-543-ST', 'Oversized Black', 'Oversized', NULL, 'Đen', 'L', 'Titanium', 6750000, 0, NULL, 1, NOW(), NOW()),
-('VAR_004', 'PRD_003', 'GC-LENS-BL', 'Blue Light Lens', NULL, 'Blue Light', 'Trong', '1.56', 'Resin', 1250000, 20, NULL, 1, NOW(), NOW());
+('VAR_001', 'PRD_001', 'RB-3016-W0365', 'Clubmaster Black Gold', 'Clubmaster', NULL, 'Đen', 'M', 'Acetate', 4250000, 4950000, 10, NULL, 1, NOW(), NOW()),
+('VAR_002', 'PRD_001', 'RB-3016-TORT', 'Clubmaster Tortoise', 'Clubmaster', NULL, 'Đồi mồi', 'M', 'Acetate', 4350000, NULL, 6, NULL, 1, NOW(), NOW()),
+('VAR_003', 'PRD_002', 'PR-543-ST', 'Oversized Black', 'Oversized', NULL, 'Đen', 'L', 'Titanium', 6750000, 7490000, 0, NULL, 1, NOW(), NOW()),
+('VAR_004', 'PRD_003', 'GC-LENS-BL', 'Blue Light Lens', NULL, 'Blue Light', 'Trong', '1.56', 'Resin', 1250000, 1590000, 20, NULL, 1, NOW(), NOW());
 
 INSERT IGNORE INTO product_images (id, product_id, variant_id, image_url, image_type, sort_order) VALUES
 ('IMG_001', 'PRD_001', 'VAR_001', 'assets/images/about-us/eyewear-display.png', 'primary', 1),
