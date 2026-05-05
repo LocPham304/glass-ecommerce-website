@@ -275,7 +275,8 @@
 .shop-product-card__media {
   display: grid;
   place-items: center;
-  height: 164px;
+  min-height: 164px;
+  max-height: 400px;
   margin: 12px 12px 0;
   border-radius: 8px;
   background: #f8fafc;

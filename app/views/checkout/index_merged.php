@@ -140,7 +140,6 @@ $isMixedCart = count($cartSummary['product_types'] ?? []) > 1;
         <div class="payment-methods">
           <p>PHƯƠNG THỨC THANH TOÁN</p>
           <label class="payment-option is-active"><input type="radio" name="payment_method" value="cod" checked /><span class="payment-option__content">Thanh toán khi nhận hàng (COD)</span></label>
-          <label class="payment-option"><input type="radio" name="payment_method" value="bank_transfer" /><span class="payment-option__content">Chuyển khoản ngân hàng</span></label>
         </div>
 
         <button

@@ -38,6 +38,7 @@ $categoryLabels = [
     </button>
 
     <nav class="site-nav" id="site-nav" aria-label="Điều hướng người dùng">
+      <a href="<?= e(url('/')) ?>">Trang chủ</a>
       <div class="nav-dropdown">
         <button
           class="nav-dropdown__toggle"
@@ -57,7 +58,6 @@ $categoryLabels = [
         </div>
       </div>
 
-      <a href="<?= e(url('/')) ?>">Trang chủ</a>
       <a href="<?= e(url('/about')) ?>">Về chúng tôi</a>
       <a href="<?= e(url('/warranty')) ?>">Chính sách</a>
       <a href="<?= e($returnLink) ?>">Đổi trả &amp; Hoàn tiền</a>
